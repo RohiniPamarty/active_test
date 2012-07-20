@@ -1,0 +1,9 @@
+<script type="text/javscript">
+</script>
+<%= form_for :album, :url => { :action => "create" }, :html => { :multipart => true } do |album| %>
+<%= link_to "New Photo", new_photo_path, :remote => true %>
+
+<div id= "addPhoto" value = "Add Photo"></div>
+<br />
+<%= album.submit %>
+<% end %>
