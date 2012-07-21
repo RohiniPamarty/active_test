@@ -1,0 +1,12 @@
+<script type="text/javscript">
+</script>
+Album <%= @album.id %> 
+<br />
+<div id="listPhoto"><%= render 'photos/index' %></div>
+<br />
+
+<div id= "addPhoto"></div>
+<br />
+<%= link_to "New Photo", new_photo_path(:album_id => @album.id), :remote => true %>
+
+

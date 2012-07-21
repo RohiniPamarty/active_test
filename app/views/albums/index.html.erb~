@@ -1,6 +1,6 @@
 <hr>
-<% @users.each do |u| %>
+<% @albums.each do |u| %>
 <br />
-<%= u.email %>
+<%= link_to "Album number"+ u.id, list_album_path(u) %>
 <% end %>
 
