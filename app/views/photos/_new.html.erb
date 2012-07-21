@@ -1,5 +1,5 @@
 
-<%= form_for :photo, :url => { :action => "create" }, :html => { :multipart => true } do |post| %>
+<%= form_for([@album, @photo]) do |post| %>
 Photo
 <%= post.file_field :phot %>
 <%= post.submit %>

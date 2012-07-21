@@ -1,1 +1,5 @@
-$(#addPhoto).append("<%= render :partial => 'photos/new'%>");
+$("#addPhoto").append("<%= escape_javascript(render :partial => 'photos/new')%>");
+
+
+
+

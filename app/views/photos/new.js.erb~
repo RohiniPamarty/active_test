@@ -1,0 +1,6 @@
+$("#addPhoto").append("<%= escape_javascript(render :partial => 'photos/new')%>");
+
+page.insert_html :bottom, :addPhoto, :partial => 'photos/new', :object => @photo
+
+
+
