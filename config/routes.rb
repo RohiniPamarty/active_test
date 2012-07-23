@@ -1,14 +1,14 @@
 ActiveTest::Application.routes.draw do
   devise_for :users
   resources :albums
-  resources :photos
+  resources :photos 
   resources :users
-
+get "photos/tags" => "photos#tags", :as => :tags
    resources :albums do
      member do
        get 'list'
      end
-     resources :photos
+     resources :photos 
 
      end
 

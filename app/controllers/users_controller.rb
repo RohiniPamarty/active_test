@@ -4,7 +4,11 @@ def welcome
 
 end
 def index
-@users=User.all
+@users=User.where("email like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @users.collect{|t| {:id => t.id, :name => t.email }}}
+    end
 end
 
 end

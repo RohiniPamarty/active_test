@@ -1,11 +1,16 @@
 ActiveTest::Application.routes.draw do
   devise_for :users
   resources :albums
-  resources :photos
+  resources :photos do
+get :autocomplete_tag_name, :on => :collection  
+end
   resources :users
 
    resources :albums do
-     resources :photos
+     member do
+       get 'list'
+     end
+     resources :photos 
 
      end
 

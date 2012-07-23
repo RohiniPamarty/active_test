@@ -1,0 +1,14 @@
+
+Click to type in below box to tag
+<br />
+<%=image_tag(@photo.phot.url) %>
+
+    <%#= @photo.label :user_tokens, "Users" %><br />
+ <%= form_for @photo, :url => { :action => "update" } do |f| %>
+    <%= f.text_field :user_tokens, "data-pre" => @photo.users.map(&:attributes).to_json %> 
+<%= f.submit %>
+<%end%>
+<%#= @photo.autocomplete_field :tag_list, autocomplete_tag_name_photos_path, :"data-delimiter" => ', ' %>
+<%#= text_field_with_auto_complete :photo, :tag %>
+<br />
+<%#= link_to 'Back', books_path %>

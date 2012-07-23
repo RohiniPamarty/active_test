@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+
 def new
 @photo=Photo.new
 
@@ -17,4 +19,18 @@ end
 def index
 
 end
+def show
+@photo = Photo.find(params[:id])
+end
+def tags
+  @tags = Photo.all_tag_counts.(:conditions => ["#{ActsAsTaggableOn::Tag.table_name}.name LIKE ?", "%#{params[:q]}%"])
+  respond_to do |format|
+    format.json { render :json => @tags.collect{|t| {:id => t.id, :name => t.email } }}
+  end  
+end
+def update
+@photo= Photo.find(params[:id])
+@photo.update_attributes(params[:photo])
+end
+
 end
