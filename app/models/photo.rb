@@ -1,4 +1,5 @@
 class Photo < ActiveRecord::Base
+attr_accessible :phot
 belongs_to :album
 has_attached_file :phot, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 has_many :userships
